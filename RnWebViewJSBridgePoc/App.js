@@ -9,9 +9,10 @@ const App = () => {
   const runFirst = `
     window.ThirdPartyWVToNativeChaseJSBridgeHandler = {
       getPDFDocument: function(obj){
-        alert(obj.url);
+        alert("from mobile: " + obj.url);
       }
-    }
+    };
+    true;
   `
 
   return (
@@ -22,6 +23,8 @@ const App = () => {
           onLoad={console.log('Loaded')}
           javaScriptEnabled={true}
           injectedJavaScript={runFirst}
+          onMessage={(event) => {}}
+          ref={() => {}}
         />
       </View>
     </View>
